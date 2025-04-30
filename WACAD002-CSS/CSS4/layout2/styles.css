@@ -1,0 +1,35 @@
+.container {
+    display: grid;
+    gap: 5px;
+  
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(3, 100px);
+    grid-template-areas:
+      "um um um um"
+      "tres tres quatro quatro"
+      "tres tres dois cinco";
+  }
+  .um {
+    background-color: brown;
+    grid-area: um;
+  }
+  .dois {
+    background-color: blue;
+    grid-area: dois;
+  }
+  .tres {
+    background-color: green;
+    grid-area: tres;
+  }
+  .quatro {
+    background-color: blueviolet;
+    grid-area: quatro;
+  }
+  .cinco {
+    background-color: orange;
+    grid-area: cinco;
+  }
+  
+  .container div {
+    border-radius: 5px;
+  }
