@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questão 4</title>
+    <style>
+      .lista {
+        font-size: 18px;
+        color: darkblue;
+      }
+      .negrito {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Várias listas</h1>
+
+    <h3>Título adicional</h3>
+
+    <p id="lista-titulo" name="lista">Lista de itens:</p>
+
+    <ul class="lista-itens-1">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <ul class="lista-itens-2">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <ul class="lista-itens-3">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <ul class="lista-itens-4">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <script>
+      // a) Altera o background-color do <h1> para purple
+      document.querySelector("h1").style.backgroundColor = "purple";
+
+      // b) Adiciona a classe 'lista' ao título <h3>
+      document.querySelector("h3").classList.add("lista");
+
+      // c) Adiciona o estilo negrito ao texto dos itens da lista-itens que contenham a classe 'hot'
+      const hotItems = document.querySelectorAll(
+        ".lista-itens-1 .hot, .lista-itens-2 .hot, .lista-itens-3 .hot, .lista-itens-4 .hot"
+      );
+      hotItems.forEach((item) => {
+        item.classList.add("negrito");
+      });
+    </script>
+  </body>
+</html>

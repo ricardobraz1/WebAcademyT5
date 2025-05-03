@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questão 3</title>
+  </head>
+  <body>
+    <h1>Várias listas</h1>
+
+    <p id="lista-titulo" name="lista">Lista de itens:</p>
+
+    <ul class="lista-itens-1">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <ul class="lista-itens-2">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <ul class="lista-itens-3">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <ul class="lista-itens-4">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <script>
+      // a) Imprime no console todos os itens da lista-itens-2
+      var itensLista2 = document
+        .getElementsByClassName("lista-itens-2")[0]
+        .getElementsByTagName("li");
+      for (var i = 0; i < itensLista2.length; i++) {
+        console.log("item " + i + ":", itensLista2.item(i));
+      }
+
+      // b) Imprime no console somente os itens da lista-itens-2 que possuam a classe 'hot'
+      var hotItensLista2 = document
+        .getElementsByClassName("lista-itens-2")[0]
+        .getElementsByClassName("hot");
+      for (var j = 0; j < hotItensLista2.length; j++) {
+        console.log("item com class hot " + j + ":", hotItensLista2[j]);
+      }
+    </script>
+  </body>
+</html>

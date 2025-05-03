@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questão 5</title>
+    <style>
+      .cold {
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Várias listas</h1>
+
+    <p id="lista-titulo" name="lista">Lista de itens:</p>
+
+    <ul class="lista-itens-1">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <ul class="lista-itens-2">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <ul class="lista-itens-3">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <ul class="lista-itens-4">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <script>
+      // i) Percorra todos os itens da lista-itens-2 e altere o estilo de cor do texto para orange
+      var itensLista2 = document.querySelectorAll(".lista-itens-2 li");
+      itensLista2.forEach((item) => {
+        item.style.color = "orange";
+      });
+
+      // ii) Percorra todos os itens da lista-itens-2 e substitua a classe "hot" pela classe "cold"
+      itensLista2.forEach((item) => {
+        if (item.classList.contains("hot")) {
+          item.classList.remove("hot");
+          item.classList.add("cold");
+        }
+      });
+    </script>
+  </body>
+</html>
