@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questão 1</title>
+  </head>
+  <body>
+    <h1>Várias listas</h1>
+
+    <div>
+      <p id="lista-titulo" name="lista">Lista de itens:</p>
+    </div>
+
+    <ul id="lista-itens-1">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <script>
+      // i) Imprimir no console o primeiro e último filho da lista 1
+      const lista = document.getElementById("lista-itens-1");
+      const primeiroFilho = lista.firstElementChild;
+      const ultimoFilho = lista.lastElementChild;
+      console.log("Primeiro filho da lista 1:", primeiroFilho);
+      console.log("Último filho da lista 1:", ultimoFilho);
+
+      // ii) Imprimir no console o elemento HTML pai da lista 1
+      const paiDaLista = lista.parentElement;
+      console.log("Elemento pai da lista 1:", paiDaLista);
+
+      // iii) Imprimir no console todos os filhos da lista 1
+      const todosFilhos = lista.children;
+      console.log("Todos os filhos da lista 1:");
+      for (let i = 0; i < todosFilhos.length; i++) {
+        console.log(todosFilhos[i]);
+      }
+
+      // iv) Imprimir no console os irmãos do item com id = 'two'
+      const itemTwo = document.getElementById("two");
+      const irmaoAnterior = itemTwo.previousElementSibling;
+      const irmaoProximo = itemTwo.nextElementSibling;
+      console.log("Irmão anterior do item 'two':", irmaoAnterior);
+      console.log("Irmão próximo do item 'two':", irmaoProximo);
+    </script>
+  </body>
+</html>

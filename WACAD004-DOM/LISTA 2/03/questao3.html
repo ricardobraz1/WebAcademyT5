@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questão 3</title>
+  </head>
+  <body>
+    <h1>Várias listas</h1>
+
+    <div>
+      <p id="lista-titulo" name="lista">Lista de itens:</p>
+    </div>
+
+    <ul id="lista-itens-1">
+      <li id="one" class="hot">item a</li>
+      <li id="two" class="hot">item b</li>
+      <li id="three" class="hot">item c</li>
+      <li id="four">item d</li>
+    </ul>
+
+    <script>
+      // i) Adicionar um novo elemento <li> à lista <ul> com id="lista-itens-1"
+      const novaLi = document.createElement("li"); // Cria um novo elemento <li>
+      novaLi.textContent = "item e"; // Define o texto do novo item
+
+      const lista = document.getElementById("lista-itens-1"); // Seleciona a lista <ul> com o id 'lista-itens-1'
+      lista.appendChild(novaLi); // Adiciona o novo item <li> como último filho da lista
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questão 5</title>
+  </head>
+  <body>
+    <h1>To-do</h1>
+
+    <div>
+      <p id="lista-titulo" name="lista">Lista de atividades:</p>
+    </div>
+
+    <div>
+      <input id="novo-item" placeholder="Digite aqui o item" />
+      <button id="adicionar-item">Adicionar</button>
+    </div>
+
+    <ul id="lista-itens">
+      <li>item a</li>
+    </ul>
+
+    <div>
+      <button id="remover-ultimo-item">Remover último item</button>
+    </div>
+
+    <script>
+      // a) Implementar funcionalidade de adicionar novo item à lista
+      const botaoAdicionar = document.getElementById("adicionar-item");
+      botaoAdicionar.addEventListener("click", function () {
+        const input = document.getElementById("novo-item");
+        const novoItemTexto = input.value.trim(); // Remove espaços em branco
+
+        if (novoItemTexto !== "") {
+          // Verifica se o campo não está vazio
+          const novaLi = document.createElement("li"); // Cria novo elemento <li>
+          novaLi.textContent = novoItemTexto; // Define o texto do novo item
+          const lista = document.getElementById("lista-itens");
+          lista.appendChild(novaLi); // Adiciona o novo item à lista
+          input.value = ""; // Limpa o campo de input
+        } else {
+          alert("O item não pode ser vazio!"); // Alerta caso o campo esteja vazio
+        }
+      });
+
+      // b) Implementar funcionalidade de remover o último item da lista
+      const botaoRemover = document.getElementById("remover-ultimo-item");
+      botaoRemover.addEventListener("click", function () {
+        const lista = document.getElementById("lista-itens");
+        if (lista.children.length > 0) {
+          // Verifica se há pelo menos um item na lista
+          const ultimoItem = lista.lastElementChild; // Seleciona o último item da lista
+          lista.removeChild(ultimoItem); // Remove o último item da lista
+        } else {
+          alert("Não há itens para remover!"); // Alerta caso a lista esteja vazia
+        }
+      });
+    </script>
+  </body>
+</html>
