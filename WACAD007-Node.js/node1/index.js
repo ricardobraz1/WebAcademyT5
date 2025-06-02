@@ -33,7 +33,7 @@ const arquivos = ['commonJs.txt', 'esModules.txt', 'libuv.txt', 'nodejs.txt', 'n
 const server = http.createServer((req, res) => {
     res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
     arquivos.forEach(arquivo => {
-        res.write(`${arquivo}<br>`);  // <-- Usando crase para interpolação
+        res.write(`${arquivo}<br>`);
     });
     res.end();
 });
