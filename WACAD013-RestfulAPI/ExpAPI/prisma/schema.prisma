@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id            String       @id @default(uuid()) @db.Char(36)
+  name          String       @unique @db.VarChar(100)
+  price         Decimal      @db.Decimal(10, 2)
+  stockQuantity Int          @db.Int()
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  ItemCompra    ItemCompra[]
+
+  @@index([name])
+}
+
+model User {
+  id         String   @id @default(uuid()) @db.Char(36)
+  name       String   @db.VarChar(100)
+  email      String   @unique @db.VarChar(100)
+  password   String   @db.Char(60)
+  userTypeId String   @db.Char(36)
+  userType   UserType @relation(fields: [userTypeId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  compras Compra[] // Novo campo de relacionamento
+}
+
+model UserType {
+  id    String @id @default(uuid()) @db.Char(36)
+  label String @db.VarChar(10)
+  User  User[]
+}
+
+model Compra {
+  id        Int          @id @default(autoincrement())
+  userId    String       @db.Char(36) // Corrigido para String
+  createdAt DateTime     @default(now())
+  items     ItemCompra[] // Relacionamento com itens da compra
+  user      User         @relation(fields: [userId], references: [id]) // Relacionamento com o usuário
+}
+
+model ItemCompra {
+  id         Int     @id @default(autoincrement())
+  compraId   Int
+  produtoId  String  @db.Char(36) // Corrigido para String (produtoId é do tipo String)
+  quantidade Int
+  compra     Compra  @relation(fields: [compraId], references: [id])
+  produto    Product @relation(fields: [produtoId], references: [id])
+}
