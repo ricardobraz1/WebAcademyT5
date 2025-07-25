@@ -1,0 +1,11 @@
+# Dockerfile.back
+FROM node:18
+
+WORKDIR /app
+
+COPY back.js /app
+RUN npm init -y
+
+EXPOSE 4000
+
+CMD ["node", "back.js"]
