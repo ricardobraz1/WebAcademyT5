@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile.front
     ports:
-      - "3000:3000"
+      - "8000:80"  
     depends_on:
       - back
     networks:
@@ -17,7 +17,7 @@ services:
       context: .
       dockerfile: Dockerfile.back
     ports:
-      - "4000:4000"
+      - "4444:4444"  
     networks:
       - cord_cont_network
 
