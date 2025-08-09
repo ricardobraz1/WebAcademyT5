@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <title>Alunos - Webacademy</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{font-family:system-ui,Arial;margin:24px}
+    table{border-collapse:collapse;width:420px}
+    th,td{border:1px solid #ddd;padding:8px}
+    th{background:#f3f3f3}
+    .ok{color:green}.err{color:#b00}
+  </style>
+</head>
+<body>
+  <h1>Alunos</h1>
+  <div id="status">Carregando...</div>
+  <table id="tab" style="display:none">
+    <thead><tr><th>ID</th><th>Nome</th></tr></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <script>
+    const api = "http://localhost:4444/alunos";
+    fetch(api)
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('status').textContent = "OK";
+        document.getElementById('status').className = "ok";
+        const tb = document.getElementById('tbody');
+        data.forEach(a => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${a.id}</td><td>${a.nome}</td>`;
+          tb.appendChild(tr);
+        });
+        document.getElementById('tab').style.display = "table";
+      })
+      .catch(err => {
+        document.getElementById('status').textContent = "Erro: " + err;
+        document.getElementById('status').className = "err";
+      });
+  </script>
+</body>
+</html>

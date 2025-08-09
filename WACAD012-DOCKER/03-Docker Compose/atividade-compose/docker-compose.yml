@@ -1,0 +1,45 @@
+services:
+  bdcontainer:
+    image: mysql:8.0
+    container_name: bdcontainer
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass2024
+    ports:
+      - "3306:3306"
+    volumes:
+      - vol_mysql:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - rede_bd
+
+  backend:
+    build: ./backend
+    container_name: backend
+    environment:
+      - DB_HOST=bdcontainer
+      - DB_USER=root
+      - DB_PASSWORD=pass2024
+      - DB_NAME=webacademy
+    ports:
+      - "4444:4444"
+    depends_on:
+      - bdcontainer
+    networks:
+      - rede_bd
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
+    networks:
+      - rede_bd
+
+networks:
+  rede_bd:
+    driver: bridge
+
+volumes:
+  vol_mysql:
